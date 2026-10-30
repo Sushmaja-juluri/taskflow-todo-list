@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f5fb">
+    <title>TaskFlow | Smart To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="app-container">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                <h1>TaskFlow <span class="brand-dot">.</span></h1>
+                <p class="subtitle">Plan smarter. Get things done.</p>
+            </div>
+            <button id="themeToggle" class="theme-button" type="button"
+                    aria-label="Switch to dark mode">
+                Dark mode
+            </button>
+        </header>
+
+        <section class="dashboard" aria-label="Task statistics">
+            <article class="stat-card">
+                <span class="stat-label">Total tasks</span>
+                <strong id="totalTasks">0</strong>
+                <span class="stat-note">All your tasks</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Completed</span>
+                <strong id="completedTasks">0</strong>
+                <span class="stat-note">Tasks finished</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Pending</span>
+                <strong id="pendingTasks">0</strong>
+                <span class="stat-note">Still to do</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Overdue</span>
+                <strong id="overdueTasks">0</strong>
+                <span class="stat-note">Past their deadline</span>
+            </article>
+        </section>
+
+        <section class="progress-card" aria-label="Overall progress">
+            <div class="progress-heading">
+                <div>
+                    <h2>Your progress</h2>
+                    <p>Every completed task counts.</p>
+                </div>
+                <strong id="progressPercentage">0%</strong>
+            </div>
+            <div class="progress-track"
+                 id="progressTrack"
+                 role="progressbar"
+                 aria-label="Task completion"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 aria-valuenow="0">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </section>
+
+        <section class="task-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">STAY ORGANIZED</p>
+                    <h2>My tasks</h2>
+                </div>
+                <span id="visibleTaskCount" class="result-count">0 tasks</span>
+            </div>
+
+            <form id="taskForm">
+                <label for="taskInput">Task name</label>
+                <input id="taskInput" type="text"
+                       placeholder="What do you need to do?"
+                       maxlength="200" required>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="priorityInput">Priority</label>
+                        <select id="priorityInput">
+                            <option value="High">High</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="dueDateInput">Due date (optional)</label>
+                        <input id="dueDateInput" type="date">
+                    </div>
+                </div>
+
+                <button id="submitButton" class="primary-button"
+                        type="submit">+ Add task</button>
+                <button id="cancelEditButton" class="secondary-button hidden"
+                        type="button">Cancel edit</button>
+                <p id="message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="task-tools">
+                <div class="search-field">
+                    <label for="searchInput">Search tasks</label>
+                    <input id="searchInput" type="search"
+                           placeholder="Search by task name...">
+                </div>
+
+                <div class="form-row filter-row">
+                    <div class="field">
+                        <label for="statusFilter">Status</label>
+                        <select id="statusFilter">
+                            <option value="All">All tasks</option>
+                            <option value="Active">Pending</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Overdue">Overdue</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="priorityFilter">Priority</label>
+                        <select id="priorityFilter">
+                            <option value="All">All priorities</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="taskList" aria-label="Task list"></ul>
+            <p id="emptyState" class="empty-state">
+                No tasks here yet. Add your first task above!
+            </p>
+        </section>
+
+        <footer>
+            <p>Your tasks are saved locally in this browser.</p>
+        </footer>
+    </main>
+    
+
+
+<!-- Developer Footer -->
+<footer class="site-footer">
+    <p>© 2026 TaskFlow</p>
+    <p>Created by <strong>Sushmaja Juluri</strong></p>
+</footer>
+
+</body>
+</html>
